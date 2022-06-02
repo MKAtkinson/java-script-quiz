@@ -1,7 +1,7 @@
 var Questions = [{
     id: 0,
     q: "What is a 'for' loop used for?",
-    a: [{text: "comparing two statements", isCorrect: false},
+    a: [{text: "Comparing two statements", isCorrect: false},
     {text: "checking what somthing is for", isCorrect: false},
     {text: "iterating through an array", isCorrect: true},
     {text: "one, two, three or for", isCorrect: false}
@@ -62,13 +62,13 @@ function iterate(id) {
     const opd = document.getElementById("option-d");
   
   
-    // Providing option text 
+    // Providing button text 
     opa.innerText = Questions[id].a[0].text;
     opb.innerText = Questions[id].a[1].text;
     opc.innerText = Questions[id].a[2].text;
     opd.innerText = Questions[id].a[3].text;
   
-    // Providing the true or false value to the options
+    // Providing the true or false value to the buttons
     opa.value = Questions[id].a[0].isCorrect;
     opb.value = Questions[id].a[1].isCorrect;
     opc.value = Questions[id].a[2].isCorrect;
@@ -79,7 +79,7 @@ function iterate(id) {
     const evaluate = document.getElementsByClassName("evaluate");
   
     // Evaluate method
-    evaluate[0].addEventListener("click", () => {
+    evaluate[0].addEventListener("click",  () => {
         if (selected == "true") {
             result[0].innerHTML = "True";
             result[0].style.color = "green";
@@ -87,6 +87,8 @@ function iterate(id) {
             result[0].innerHTML = "False";
             result[0].style.color = "red";
         }
+        id++;
+        iterate(id);
     })
 }
   
@@ -95,15 +97,15 @@ if (start) {
 }
   
 // Next button and method
-const next = document.getElementsByClassName('next')[0];
-var id = 0;
+// const next = document.getElementsByClassName('next')[0];
+// var id = 0;
   
-next.addEventListener("click", () => {
-    start = false;
-    if (id < 2) {
-        id++;
-        iterate(id);
-        console.log(id);
-    }
+// next.addEventListener("click", () => {
+//     start = false;
+//     if (id < 2) {
+//         id++;
+//         iterate(id);
+//         console.log(id);
+//     }
   
-})
+// })
