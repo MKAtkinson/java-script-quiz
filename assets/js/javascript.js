@@ -1,4 +1,4 @@
-var questions = [{
+var Questions = [{
     id: 0,
     q: "What is a 'for' loop used for?",
     a: [{text: "comparing two statements", isCorrect: false},
@@ -41,6 +41,69 @@ var questions = [{
 },
 
 ]
+var start = true;
+  
+function iterate(id) {
+  
+    var result = document.getElementsByClassName("result");
+    result[0].innerText = "";
+  
+    // Getting the question
+    const question = document.getElementById("question");
+  
+  
+    // Setting the question text
+    question.innerText = Questions[id].q;
+  
+    // Getting the options
+    const opa = document.getElementById("option-a");
+    const opb = document.getElementById("option-b");
+    const opc = document.getElementById("option-c");
+    const opd = document.getElementById("option-d");
+  
+  
+    // Providing option text 
+    opa.innerText = Questions[id].a[0].text;
+    opb.innerText = Questions[id].a[1].text;
+    opc.innerText = Questions[id].a[2].text;
+    opd.innerText = Questions[id].a[3].text;
+  
+    // Providing the true or false value to the options
+    opa.value = Questions[id].a[0].isCorrect;
+    opb.value = Questions[id].a[1].isCorrect;
+    opc.value = Questions[id].a[2].isCorrect;
+    opd.value = Questions[id].a[3].isCorrect;
+  
+    var selected = "";
 
-
-addEventListener.on("click",)
+    const evaluate = document.getElementsByClassName("evaluate");
+  
+    // Evaluate method
+    evaluate[0].addEventListener("click", () => {
+        if (selected == "true") {
+            result[0].innerHTML = "True";
+            result[0].style.color = "green";
+        } else {
+            result[0].innerHTML = "False";
+            result[0].style.color = "red";
+        }
+    })
+}
+  
+if (start) {
+    iterate("0");
+}
+  
+// Next button and method
+const next = document.getElementsByClassName('next')[0];
+var id = 0;
+  
+next.addEventListener("click", () => {
+    start = false;
+    if (id < 2) {
+        id++;
+        iterate(id);
+        console.log(id);
+    }
+  
+})
