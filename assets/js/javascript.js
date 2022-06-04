@@ -42,6 +42,20 @@ var Questions = [{
 
 ]
 var start = true;
+
+var timeLeft = 30;
+    var elem = document.getElementById("timer");
+    
+    var timerId = setInterval(countdown, 1000);
+    
+    function countdown() {
+      if (timeLeft == -1) {
+        clearTimeout(timerId);
+      } else {
+        elem.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+      }
+    }
   
 function iterate(id) {
   
@@ -55,24 +69,24 @@ function iterate(id) {
     // Setting the question text
     question.innerText = Questions[id].q;
   
-    // Getting the options
-    const opa = document.getElementById("option-a");
-    const opb = document.getElementById("option-b");
-    const opc = document.getElementById("option-c");
-    const opd = document.getElementById("option-d");
+    // Getting the buttons
+    const optionA = document.getElementById("option-a");
+    const optionB = document.getElementById("option-b");
+    const optionC = document.getElementById("option-c");
+    const optionD = document.getElementById("option-d");
   
   
     // Providing button text 
-    opa.innerText = Questions[id].a[0].text;
-    opb.innerText = Questions[id].a[1].text;
-    opc.innerText = Questions[id].a[2].text;
-    opd.innerText = Questions[id].a[3].text;
+    optionA.innerText = Questions[id].a[0].text;
+    optionB.innerText = Questions[id].a[1].text;
+    optionC.innerText = Questions[id].a[2].text;
+    optionD.innerText = Questions[id].a[3].text;
   
     // Providing the true or false value to the buttons
-    opa.value = Questions[id].a[0].isCorrect;
-    opb.value = Questions[id].a[1].isCorrect;
-    opc.value = Questions[id].a[2].isCorrect;
-    opd.value = Questions[id].a[3].isCorrect;
+    optionA.value = Questions[id].a[0].isCorrect;
+    optionB.value = Questions[id].a[1].isCorrect;
+    optionC.value = Questions[id].a[2].isCorrect;
+    optionD.value = Questions[id].a[3].isCorrect;
   
     var selected = "";
 
@@ -83,12 +97,53 @@ function iterate(id) {
         if (selected == "true") {
             result[0].innerHTML = "True";
             result[0].style.color = "green";
+            
         } else {
             result[0].innerHTML = "False";
             result[0].style.color = "red";
+            
         }
-        id++;
-        iterate(id);
+         id++;
+         iterate(id);
+    })
+    evaluate[1].addEventListener("click",  () => {
+        if (selected == "true") {
+            result[0].innerHTML = "True";
+            result[0].style.color = "green";
+            
+        } else {
+            result[0].innerHTML = "False";
+            result[0].style.color = "red";
+            
+        }
+         id++;
+         iterate(id);
+    })
+    evaluate[2].addEventListener("click",  () => {
+        if (selected == "true") {
+            result[0].innerHTML = "True";
+            result[0].style.color = "green";
+            
+        } else {
+            result[0].innerHTML = "False";
+            result[0].style.color = "red";
+            
+        }
+         id++;
+         iterate(id);
+    })
+    evaluate[3].addEventListener("click",  () => {
+        if (selected == "true") {
+            result[0].innerHTML = "True";
+            result[0].style.color = "green";
+            
+        } else {
+            result[0].innerHTML = "False";
+            result[0].style.color = "red";
+            
+        }
+         id++;
+         iterate(id);
     })
 }
   
